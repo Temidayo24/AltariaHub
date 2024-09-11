@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+background: #ffffff;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.7;
+  color: #000000;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+input:not([type="checkbox"]):focus {
+  outline: 0;
+  border-color:#FF6642;
+}
+
+.img-orange {
+  filter: invert(51%) sepia(6%) saturate(6939%) hue-rotate(325deg) brightness(102%) contrast(101%);
+}
+
+.img-white {
+  filter: invert(100%) sepia(12%) saturate(7465%) hue-rotate(179deg) brightness(104%) contrast(109%);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+font-size: 14px !important;
+color: #000000 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+background-color: white !important;
+border-radius: 50% !important;
+width: 30px !important;
+height: 30px !important;
+box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+}
+
+.carousel .thumb.selected {
+  border: 1.5px solid #FF6642 !important;
+}
+.carousel .thumb:hover {
+  border: 0px !important;
+}
+
+.carousel .thumb {
+  border: 3px solid #fff;
+  padding: 0px !important;
+  width: 90px !important;
+  height: 70px !important;
+}
+
+.carousel .thumbs-wrapper {
+  margin: 20px 0px 0px 0px !important;
+}
+
+.rdp-range_end .rdp-day_button {
+  background-color: #FF6642 !important;
+}
+
+.rdp-range_start .rdp-day_button {
+  background-color: #FF6642 !important;
+}
+
+.rdp-selected .rdp-day_button {
+  border: #FF6642 !important;
+}
+
+.rdp-chevron {
+  fill: #FF6642 !important;
+}
+
