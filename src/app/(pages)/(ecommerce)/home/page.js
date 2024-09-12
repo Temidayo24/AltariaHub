@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Button from "@/app/components/Buttons";
 import Link from "next/link";
 import useProductsStore from "@/app/store/productsStore";
-import img from "../../../../../public/images/cart.jpeg";
 import EmblaCarousel from "@/app/components/Carousel";
 
 const OPTIONS = { align: "start", dragFree: true, loop: true };
@@ -87,7 +86,7 @@ const Home = () => {
                 <div className="w-full rounded-lg ">
                   <Image
                     priority={true}
-                    src={img}
+                    src={"/images/cart.jpeg"}
                     alt=""
                     width={9999}
                     height="auto"
