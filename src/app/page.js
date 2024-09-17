@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import Button from "@/app/components/Buttons";
+import Button from "./components/Buttons";
 import Link from "next/link";
-import useProductsStore from "@/app/store/productsStore";
-import EmblaCarousel from "@/app/components/Carousel";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import EmblaCarousel from "./components/Carousel";
+import useProductsStore from "./store/productsStore";
 
 const OPTIONS = { align: "start", dragFree: true, loop: true };
 
@@ -84,7 +84,7 @@ const Home = () => {
             Shop from Top Categories
           </div>
           <div className="flex justify-between gap-2 py-3 ">
-            {topCategories.map((category) => (
+            {topCategories.map((category, index) => (
               <div className="w-1/6 flex flex-col justify-center items-center h-full gap-2 font-extralight text-lg">
                 <Link href={`/topCategory/${category.name}`} key={category._id}>
                   <div className="w-full rounded-lg ">

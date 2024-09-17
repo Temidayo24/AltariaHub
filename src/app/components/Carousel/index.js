@@ -40,13 +40,13 @@ const EmblaCarousel = (props) => {
   const servicesPage = pathname.startsWith("/services");
 
  useEffect(() => {
-   let slideSize;
+   let slideSize = "20%"
 
 
-   if (pathname === "/events" || pathname === "/services") {
-     slideSize = "25%";
+   if (productsPage) {
+     slideSize
    } else {
-     slideSize = "20%"; // Default size
+     slideSize = "25%"; // Default size
    }
 
    console.log("Setting slide size to:", slideSize); // Debugging line
@@ -63,7 +63,7 @@ const EmblaCarousel = (props) => {
               <div className="embla__slide" key={index}>
                 {productsPage && (
                   <ProductCard
-                    key={slide._id}
+                    key={index}
                     category={slide.category_name}
                     salePrice={slide.sale_price}
                     globalPrice={slide.global_price}
