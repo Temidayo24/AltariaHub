@@ -50,16 +50,14 @@ const Footer = () => {
           "
       >
         <div className="flex flex-col gap-5 pc:w-[350px]">
-          <img
-            src="/svg/icons/alt-logo.svg"
-            alt="altaria logo"
-            className="w-[110px]"
-          />
+          <Link href={"/"} className="text-primary1 text-3xl font-bold">
+            {/* <img src="/svg/icons/alt-logo.svg" /> */}
+            One-Stop
+          </Link>
           <div className="flex flex-col gap-3">
             <span className="font-[600]">Stay in the Loop</span>
             <p className="text-sm text-black text-opacity-40 leading-5">
-              Get the latest updates, tips, and
-              exclusive offers
+              Get the latest updates, tips, and exclusive offers
             </p>
             <form onSubmit={handleSubmit(onSubmit)} className="flex w-full">
               <input
@@ -102,7 +100,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-[12px] ">
             <span className="text-black font-[500] text-sm">
-              About Altariahub
+              About One-Stop
             </span>
             <FooterLink label="About us" href="/" />
             <FooterLink label="Privacy notice" href="/" />
@@ -113,16 +111,16 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-[12px]">
             <span className="text-black font-[500] text-sm">Services</span>
-            <FooterLink label="Altaria Market" href="/" />
-            <FooterLink label="Altaria Cares" href="/" />
-            <FooterLink label="Altaria Events" href="/" />
-            <FooterLink label="Altaria Community" href="/" />
-            <FooterLink label="Altaria Health" href="/" />
-            <FooterLink label="Altaria Learning" href="/" />
+            <FooterLink label="One-Stop Market" href="/" />
+            <FooterLink label="One-Stop Cares" href="/" />
+            <FooterLink label="One-Stop Events" href="/" />
+            <FooterLink label="One-Stop Community" href="/" />
+            <FooterLink label="One-Stop Health" href="/" />
+            <FooterLink label="One-Stop Learning" href="/" />
           </div>
           <div className="flex flex-col gap-[12px] w-fit text-black font-[500] text-sm">
             <span className="">Registry</span>
-            <Link href="/">Sell on Altaria</Link>
+            <Link href="/">Sell on One-Stop</Link>
             <Link href="/">Become a Logistics partner</Link>
           </div>
         </div>
@@ -145,7 +143,7 @@ const Footer = () => {
       </section>
       <section className="text-center w-full bg-primary2 py-7 pc:px-7 pc:py-6">
         <p className="text-white text-sm">
-          ©2024, Altaria Hub. All Rights Reserved
+          ©2024, One-Stop. All Rights Reserved
         </p>
       </section>
     </footer>

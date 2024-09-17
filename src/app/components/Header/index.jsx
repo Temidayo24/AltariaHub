@@ -74,8 +74,9 @@ const Header = () => {
   return (
     <div className="px-[70px] py-7 flex flex-col gap-6 fixed w-[100vw] bg-white z-40">
       <div className="flex justify-between">
-        <Link href={"/"}>
-          <img src="/svg/icons/alt-logo.svg" />
+        <Link href={"/"} className="text-primary1 text-3xl font-bold">
+          {/* <img src="/svg/icons/alt-logo.svg" /> */}
+          One-Stop
         </Link>
         <form className="flex basis-1/3" onSubmit={onSubmit}>
           <input
@@ -207,7 +208,7 @@ const Header = () => {
           <NavLink path="" text="Charity" />
           <NavLink path="" text="Health" />
           <NavLink path="" text="Learning" />
-          <NavLink path="" text="Sell on Altaria" />
+          <NavLink path="" text="Sell on One-Stop" />
         </ul>
         <span className="text-primary1 flex items-center gap-2">
           <img src="/svg/icons/question.svg" alt="help button" />
