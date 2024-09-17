@@ -34,7 +34,7 @@ const EmblaCarousel = (props) => {
   const pathname = usePathname();
   const eventsPage = pathname === "/events";
   const productsPage =
-    pathname === "/home" ||
+    pathname === "/" ||
     pathname === "/cart" ||
     pathname.startsWith("/product");
   const servicesPage = pathname.startsWith("/services");
