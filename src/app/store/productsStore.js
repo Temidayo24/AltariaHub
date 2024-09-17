@@ -16,7 +16,6 @@ const ADD_TO_REGISTRY = `${URL}addIntoRegistry`;
 const CREATE_REGISTRY = `${URL}create/registry`;
 const FETCH_REGISTRY = `${URL}usersRegistry`;
 
-
 const sortProducts = (products = [], criteria) => {
   switch (criteria) {
     case "bestSelling":
@@ -57,13 +56,15 @@ const useProductsStore = create(
         limit,
         condition = "",
         category = "",
-        priceRange = ""
+        priceRange = "",
       }) => {
         try {
           set({ loading: true });
           const categoryQuery = category ? `&category=${category}` : "";
           const conditionQuery = condition ? `&condition=${condition}` : "";
-          const priceRangeQuery = priceRange ? `&price_range=${priceRange}` : "";
+          const priceRangeQuery = priceRange
+            ? `&price_range=${priceRange}`
+            : "";
           const response = await axios.get(
             `${URL}search/products?query=${query}${conditionQuery}${categoryQuery}${priceRangeQuery}&limit=${limit}`
           );
@@ -111,8 +112,10 @@ const useProductsStore = create(
       addToWishlist: async (product_id) => {
         try {
           set({ loading: true });
+          const token = localStorage.getItem("token");
           const response = await axios.post(ADD_TO_WISHLIST, {
-            product_id: product_id,
+            product_id,
+            headers: { Authorization: `Bearer ${token}` },
           });
           toast.success(response.message);
           set({
@@ -122,9 +125,9 @@ const useProductsStore = create(
         } catch (error) {
           const errorMessage = error.response?.data?.message || error.message;
           set({ loading: false, error: errorMessage });
-          if (!errorMessage === "Authorization header is missing") {
-            toast.error(errorMessage);
-          }
+          if (errorMessage === "Authorization header is missing") {
+            toast.error("You need to be logged in to add items to wishlist.");
+          } else {toast.error(errorMessage)}
         }
       },
 
@@ -141,9 +144,9 @@ const useProductsStore = create(
         } catch (error) {
           const errorMessage = error.response?.data?.message || error.message;
           set({ loading: false, error: errorMessage });
-           if (!errorMessage === "Authorization header is missing") {
-             toast.error(errorMessage);
-           }
+          if (!errorMessage === "Authorization header is missing") {
+            toast.error(errorMessage);
+          }
         }
       },
 
@@ -151,8 +154,9 @@ const useProductsStore = create(
         try {
           set({ loading: true });
           const response = await axios.post(ADD_TO_REGISTRY, {
-            product_id: product_id,
-            registry_id: registry_id,
+            product_id,
+            registry_id,
+            headers: { Authorization: `Bearer ${token}` },
           });
           if (response.message === "Product is already in the registry") {
             toast.success("Product is already in the registry");
@@ -250,12 +254,11 @@ const useProductsStore = create(
         }
       },
 
-      fetchNewArrivals: async ({limit}) => {
+      fetchNewArrivals: async ({ limit }) => {
         try {
           set({ loading: true });
           const response = await axios.get(`${NEW_ARRIVALS}?limit=${limit}`);
           const products = response.data.data;
-          console.log(products);
           set({
             loading: false,
             newArrivals: products,

@@ -40,18 +40,16 @@ const EmblaCarousel = (props) => {
   const servicesPage = pathname.startsWith("/services");
 
  useEffect(() => {
-   let slideSize = "20%"
-
+   let slideSize = "25%"; // Default size
 
    if (productsPage) {
-     slideSize
-   } else {
-     slideSize = "25%"; // Default size
+     slideSize = "20%"; // Set for product pages
    }
 
    console.log("Setting slide size to:", slideSize); // Debugging line
    document.documentElement.style.setProperty("--slide-size", slideSize);
- }, [pathname]);
+ }, [pathname, productsPage]);
+
 
   return (
     <section className="embla">

@@ -90,9 +90,7 @@ const ProductDetails = () => {
   }, [id, fetchProductByID, resetProductState, fetchRelatedProducts]);
 
   const handleAddToWishlist = () => {
-    if (!user) {
-      toast.error("You need to be logged in to add items to wishlist.");
-    } else addToWishlist(id);
+    addToWishlist(id);
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
